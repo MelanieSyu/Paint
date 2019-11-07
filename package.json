@@ -1,0 +1,29 @@
+{
+  "name": "paint",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "gulp",
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MelanieSyu/Paint.git"
+  },
+  "author": "Smeshariki",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MelanieSyu/Paint/issues"
+  },
+  "homepage": "https://github.com/MelanieSyu/Paint#readme",
+  "devDependencies": {
+    "gulp": "4.0.2",
+    "gulp-cli": "2.2.0",
+    "gulp-concat": "2.6.1",
+    "gulp-sass": "4.0.2",
+    "mocha": "6.2.2",
+    "chai": "4.2.0",
+    "browser-sync": "2.26.7"
+  }
+}
