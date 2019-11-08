@@ -17,7 +17,7 @@ const htmlTask = cb => {
 }
 
 const sassTask = cb => {
-    src('src/assets/scss/*.scss')
+    src('src/assets/commonscss/*.scss')
     .pipe(sass().on('error', sass.logError))
     .pipe(concat('style.css'))
     .pipe(dest('build/assets/css', taskOptions))
