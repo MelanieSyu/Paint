@@ -35,3 +35,26 @@ function getColor() {
     div.appendChild(input);
 }
 getColor();
+
+var canvas=document.getElementById('canvas');
+var ctx = canvas.getContext('2d');
+ctx.moveTo(0,0);
+ctx.lineWidth = 10; // толщина линии
+
+// canvas.onclick = function() {
+// var x=event.offsetX;
+// var y=event.offsetY;
+// ctx.lineTo(x, y); //рисуем линию
+// ctx.stroke();
+// }
+canvas.onmousedown = function() {
+    canvas.onmousemove = function() {
+        var x=event.offsetX;
+        var y=event.offsetY;
+        ctx.lineTo(x, y,0); //рисуем линию
+        ctx.stroke();
+        }
+        canvas.onmousedown = function() {
+            canvas.onmousemove = null;
+        }
+}
