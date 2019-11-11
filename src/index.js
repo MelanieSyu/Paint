@@ -17,9 +17,10 @@ function getRange() {
 
     input.id = "range";
     input.type = "range";
-    input.min = 0;
+    input.value = 1;
+    input.min = 1;
     input.max = 100;
-    
+
     let div = document.getElementsByTagName('div')[0];
     div.appendChild(input);
 }
@@ -30,31 +31,38 @@ function getColor() {
 
     input.id = "color";
     input.type = "color";
-    
+
     let div = document.getElementsByTagName('div')[0];
     div.appendChild(input);
 }
 getColor();
 
-var canvas=document.getElementById('canvas');
-var ctx = canvas.getContext('2d');
-ctx.moveTo(0,0);
-ctx.lineWidth = 10; // толщина линии
+let canvas = document.getElementById('canvas');
+let ctx = canvas.getContext('2d');
+ctx.lineWidth = 10; 
+let lineColor = document.getElementById('color');
+let lineWidth = document.getElementById('range');
+let isMouseDown = false;
 
-// canvas.onclick = function() {
-// var x=event.offsetX;
-// var y=event.offsetY;
-// ctx.lineTo(x, y); //рисуем линию
-// ctx.stroke();
-// }
-canvas.onmousedown = function() {
-    canvas.onmousemove = function() {
-        var x=event.offsetX;
-        var y=event.offsetY;
-        ctx.lineTo(x, y,0); //рисуем линию
+canvas.onmousedown = function (e) {
+    let x = e.offsetX;
+    let y = e.offsetY;
+    ctx.moveTo(x, y);
+    ctx.beginPath();
+    isMouseDown = true;
+    ctx.strokeStyle = lineColor.value;
+    ctx.lineWidth = lineWidth.value;
+}
+
+canvas.onmousemove = function (e) {
+    if (isMouseDown) {
+        let x = e.offsetX;
+        let y = e.offsetY;
+        ctx.lineTo(x, y, 0); 
         ctx.stroke();
-        }
-        canvas.onmousedown = function() {
-            canvas.onmousemove = null;
-        }
+    }
+}
+
+canvas.onmouseup = function () {
+    isMouseDown = false;
 }
