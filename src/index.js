@@ -6,7 +6,6 @@ function paintCanvas() {
     canvas.id = "canvas";
     canvas.width = 1280;
     canvas.height = 720;
-    canvas.style.zIndex = 1;
     canvas.style.border = "1px solid red";
 
     root.appendChild(canvas);
@@ -65,5 +64,9 @@ canvas.onmousemove = function (e) {
 }
 
 canvas.onmouseup = function () {
+    isMouseDown = false;
+}
+
+canvas.onmouseover = function () {
     isMouseDown = false;
 }
