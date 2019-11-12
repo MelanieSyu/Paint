@@ -1,3 +1,5 @@
+let root = document.getElementById('root');
+
 function paintCanvas() {
     const canvas = document.createElement('canvas');
 
@@ -7,8 +9,7 @@ function paintCanvas() {
     canvas.style.zIndex = 1;
     canvas.style.border = "1px solid red";
 
-    let div = document.getElementsByTagName('div')[0];
-    div.appendChild(canvas);
+    root.appendChild(canvas);
 }
 paintCanvas();
 
@@ -21,8 +22,7 @@ function getRange() {
     input.min = 1;
     input.max = 100;
 
-    let div = document.getElementsByTagName('div')[0];
-    div.appendChild(input);
+    root.appendChild(input);
 }
 getRange();
 
@@ -32,14 +32,15 @@ function getColor() {
     input.id = "color";
     input.type = "color";
 
-    let div = document.getElementsByTagName('div')[0];
-    div.appendChild(input);
+    root.appendChild(input);
 }
 getColor();
 
 let canvas = document.getElementById('canvas');
 let ctx = canvas.getContext('2d');
+
 ctx.lineWidth = 10; 
+
 let lineColor = document.getElementById('color');
 let lineWidth = document.getElementById('range');
 let isMouseDown = false;
@@ -47,11 +48,12 @@ let isMouseDown = false;
 canvas.onmousedown = function (e) {
     let x = e.offsetX;
     let y = e.offsetY;
+    
     ctx.moveTo(x, y);
     ctx.beginPath();
-    isMouseDown = true;
     ctx.strokeStyle = lineColor.value;
     ctx.lineWidth = lineWidth.value;
+    isMouseDown = true;
 }
 
 canvas.onmousemove = function (e) {
