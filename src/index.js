@@ -58,6 +58,7 @@ canvas.onmousemove = function (e) {
     if (isMouseDown) {
         let x = e.offsetX;
         let y = e.offsetY;
+        
         ctx.lineTo(x, y, 0); 
         ctx.stroke();
     }
