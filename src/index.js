@@ -31,6 +31,7 @@ function getColor() {
 
     input.id = "color";
     input.type = "color";
+    input.value = "#000";
 
     root.appendChild(input);
 }
@@ -38,9 +39,6 @@ getColor();
 
 let canvas = document.getElementById('canvas');
 let ctx = canvas.getContext('2d');
-
-ctx.lineWidth = 10; 
-
 let lineColor = document.getElementById('color');
 let lineWidth = document.getElementById('range');
 let isMouseDown = false;
